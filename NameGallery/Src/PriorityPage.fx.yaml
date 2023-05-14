@@ -1,0 +1,210 @@
+PriorityPage As screen:
+    Height: =Max(App.Height, App.DesignHeight)
+    Orientation: =If(PriorityPage.Width < PriorityPage.Height, Layout.Vertical, Layout.Horizontal)
+    Size: =1 + CountRows(App.SizeBreakpoints) - CountIf(App.SizeBreakpoints, Value >= PriorityPage.Width)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    PriorityGallery As gallery.galleryVertical:
+        AccessibleLabel: ="Priority gallery"
+        BorderColor: =RGBA(165, 127, 96, 1)
+        BorderThickness: =0.2
+        DisabledBorderColor: =PriorityGallery.BorderColor
+        DisabledFill: =PriorityGallery.Fill
+        Fill: =RGBA(242, 244, 249, .5)
+        Height: =658
+        HoverBorderColor: =PriorityGallery.BorderColor
+        HoverFill: =PriorityGallery.Fill
+        Items: =PriorityTypes
+        Layout: =Layout.Vertical
+        LoadingSpinnerColor: =PriorityGallery.BorderColor
+        PressedBorderColor: =PriorityGallery.BorderColor
+        PressedFill: =PriorityGallery.Fill
+        TemplatePadding: =0
+        TemplateSize: =45.78236914600549
+        Width: =1024
+        Y: =60
+        ZIndex: =1
+
+        Rectangle7_13 As rectangle:
+            AccessibleLabel: ="Separ"
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle7_13.Fill
+            Fill: =RGBA(204, 204, 204, 1)
+            FocusedBorderColor: =Rectangle7_13.BorderColor
+            Height: =1
+            HoverFill: =Rectangle7_13.Fill
+            PressedFill: =Rectangle7_13.Fill
+            Width: =1024
+            Y: =44.7823691460055
+            ZIndex: =1
+
+        icon1_3 As icon.Check:
+            AccessibleLabel: ="Selected state icon"
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(115,115,115,1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =icon1_3.Fill
+            FocusedBorderColor: =icon1_3.BorderColor
+            Height: =26
+            HoverBorderColor: =ColorFade(icon1_3.BorderColor, 20%)
+            HoverColor: =ColorFade(icon1_3.Color, 20%)
+            HoverFill: =icon1_3.Fill
+            Icon: =Icon.Check
+            PressedBorderColor: =ColorFade(icon1_3.BorderColor, -20%)
+            PressedColor: =ColorFade(icon1_3.Color, -20%)
+            PressedFill: =icon1_3.Fill
+            Visible: =If(ThisItem.PriorityTypes=priority,true,false)
+            Width: =26
+            X: =975.7974683544235
+            Y: =9.89118457300275
+            ZIndex: =2
+
+        Group16_2 As group:
+            Height: =45.7823691460055
+            Width: =1024
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+            Rectangle7_2 As rectangle:
+                AccessibleLabel: =ThisItem.PriorityTypes
+                BorderColor: =RGBA(0, 0, 255, 1)
+                DisabledFill: =Rectangle7_2.Fill
+                Fill: =RGBA(62,96,170,0)
+                FocusedBorderColor: =Rectangle7_2.BorderColor
+                Height: =45.7823691460055
+                HoverFill: =Rectangle7_2.Fill
+                OnSelect: |-
+                    =Navigate(NamedetailsPage,ScreenTransition.Fade,{priority:PriorityGallery.Selected.PriorityTypes})
+                PressedFill: =Rectangle7_2.Fill
+                TabIndex: =0
+                Width: =1024
+                ZIndex: =4
+
+            TextBox8_3 As label:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                Color: =RGBA(20, 33, 61, 1)
+                FocusedBorderColor: =TextBox8_3.BorderColor
+                FocusedBorderThickness: =02
+                FontWeight: =FontWeight.Semibold
+                Height: =45.7823691460055
+                HoverBorderColor: =TextBox8_3.BorderColor
+                HoverColor: =TextBox8_3.Color
+                HoverFill: =TextBox8_3.Fill
+                OnSelect: |-
+                    =Navigate(NamedetailsPage,ScreenTransition.Fade,{priority:PriorityGallery.Selected.PriorityTypes})
+                PressedBorderColor: =TextBox8_3.BorderColor
+                PressedColor: =TextBox8_3.Color
+                PressedFill: =TextBox8_3.Fill
+                Size: =12
+                Text: =ThisItem.PriorityTypes
+                Width: =463.0480174576004
+                X: =13.357195735254963
+                ZIndex: =5
+
+    Rectangle1_16 As rectangle:
+        AccessibleLabel: ="Background rectangle"
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle1_16.Fill
+        Fill: =RGBA(109,49,162,1)
+        FocusedBorderColor: =Rectangle1_16.BorderColor
+        Height: =60
+        HoverFill: =Rectangle1_16.Fill
+        PressedFill: =Rectangle1_16.Fill
+        TabIndex: =0
+        Width: =1024
+        ZIndex: =2
+
+    TextBox4_7 As label:
+        Align: =LayoutAlignItems.Center
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(237, 233, 230, 1)
+        Fill: =RGBA(121, 17, 42, 1)
+        FocusedBorderColor: =TextBox4_7.BorderColor
+        FontWeight: =FontWeight.Bold
+        Height: =60
+        HoverBorderColor: =TextBox4_7.BorderColor
+        HoverColor: =TextBox4_7.Color
+        HoverFill: =TextBox4_7.Fill
+        PressedBorderColor: =TextBox4_7.BorderColor
+        PressedColor: =TextBox4_7.Color
+        PressedFill: =TextBox4_7.Fill
+        Size: =20
+        Text: ="Priority"
+        Width: =1024
+        ZIndex: =3
+
+    Button1_2 As button:
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade(Button1_2.Fill, -15%)
+        BorderThickness: =0
+        Color: =RGBA(237, 233, 230, 1)
+        DisabledBorderColor: =ColorFade(Button1_2.BorderColor, 70%)
+        DisplayMode: =If(false,DisplayMode.View,DisplayMode.Edit)
+        Fill: =RGBA(121, 17, 42, 1)
+        FocusedBorderColor: =Button1_2.BorderColor
+        Height: =50
+        HoverBorderColor: =Button1_2.BorderColor
+        HoverColor: =Button1_2.Color
+        HoverFill: =Button1_2.Fill
+        OnSelect: |-
+            =If(CreatedBy.Text="" || Dropdown_Priority.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BPriority'="Select a priority" ||Dropdown_Area.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BAccount Name'="Select an area" || Subject.Text="" || Description.Text="",
+                UpdateContext({msg_visible:false});UpdateContext({msg_visible:true}),
+                Collect(TicketsCollect1,{ID:Text(CountRows(TicketsCollect1)+1),Owner:CreatedBy.Text,AccountName:Dropdown_Area.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BAccount Name',Priority:Dropdown_Priority.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BPriority',Subject:Subject.Text,Description:Description.Text,Status:"New", DateCreated:Text(Today())});
+                
+            Navigate(DashboardPage, ScreenTransition.None))
+        PressedBorderColor: =Button1_2.BorderColor
+        PressedColor: =Button1_2.Color
+        PressedFill: =ColorFade(Button1_2.Fill, 20%)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: =""
+        Width: =1024
+        Y: =718
+        ZIndex: =6
+
+    Group6_2 As group:
+        Height: =60
+        Width: =60
+        X: =0
+        Y: =0
+        ZIndex: =20
+
+        Rectangle1_17 As rectangle:
+            AccessibleLabel: ="Navigate to previous screen"
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle1_17.Fill
+            Fill: =RGBA(121, 17, 42, 1)
+            FocusedBorderColor: =Rectangle1_17.BorderColor
+            Height: =60
+            HoverFill: =Rectangle1_17.Fill
+            OnSelect: =Back()
+            PressedFill: =Rectangle1_17.Fill
+            TabIndex: =0
+            Width: =60
+            ZIndex: =4
+
+        icon5_3 As icon.Cancel:
+            AccessibleLabel: ="Navigate to previous screen"
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(237, 233, 230, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =icon5_3.Fill
+            FocusedBorderColor: =icon5_3.BorderColor
+            Height: =30
+            HoverBorderColor: =ColorFade(icon5_3.BorderColor, 20%)
+            HoverColor: =ColorFade(icon5_3.Color, 20%)
+            HoverFill: =icon5_3.Fill
+            Icon: =Icon.Cancel
+            OnSelect: =Back()
+            PressedBorderColor: =ColorFade(icon5_3.BorderColor, -20%)
+            PressedColor: =ColorFade(icon5_3.Color, -20%)
+            PressedFill: =icon5_3.Fill
+            TabIndex: =0
+            Width: =30
+            X: =15
+            Y: =15
+            ZIndex: =5
+
